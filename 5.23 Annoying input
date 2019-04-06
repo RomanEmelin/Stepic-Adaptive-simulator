@@ -1,0 +1,42 @@
+'''
+Write a function get_int(start_message, error_message, end_message) that takes three strings as arguments. 
+The function must prompt the user for input until an integer is entered (a string accepted by the int function without errors). 
+Before the first I / o request needs to be inferred argument start_message, after each correct entry you want to display the value of a string error_message and if successful, the input you should print the string end_message and return the obtained integer from a function (see example). Each output message must be on a separate line.
+For example, call:
+
+x = get_int('Input int number:', 'Wrong value. Input int number:', 'Thank you.')
+
+Will work as follows (each second line describes the user input):
+
+Input int number:
+
+ten
+
+Wrong value. Input int number:
+
+ten (10)
+
+Wrong value. Input int number:
+
+Ten
+
+Thank you.
+
+After that, the value of the variable x will be equal to 10.
+
+The solution code must not contain a call to the get_int function. It is guaranteed that at some point the user will enter an integer.
+'''
+
+def get_int(start_message, error_message, end_message): #In this example, I used the try-except construct to keep the function running until an integer is input()
+    print(start_message)
+    n = input()
+    while type(n) != int:
+        try:
+            n = int(n)
+        except ValueError:    
+            print(error_message)
+            n = input()
+            
+        else:
+            print(end_message)
+            return n
