@@ -1,0 +1,56 @@
+'''
+ower of Hanoi - one of the well-known puzzles, the condition of which is as follows:
+
+There are three rods (numbered 1, 2 and 3). On the first rod there are n rings with radii from 1 to n. The rings are sorted by radius, and the largest ring lies below all.
+
+You need to find and write down the algorithm of transferring all n rings from the first rod to the third one according to the following rules: 
+
+only one ring can be carried in one move; 
+
+you can't put a bigger ring on a smaller one.
+
+The program should display the shortest sequence of actions necessary to move all the rings from the first rod to the third.
+
+Input format:
+
+A string containing a positive integer n.
+
+Output format:
+
+The order of actions to solve the puzzle. Each action is written on a separate line. The action is recorded in the format of "the number of the rod from which we remove the ring" - "the number of the rod on which we put the ring" (see the example of the program).
+
+Sample Input 1:
+
+2
+Sample Output 1:
+
+1 - 2
+1 - 3
+2 - 3
+Sample Input 2:
+
+1
+Sample Output 2:
+
+1 - 3
+'''
+
+def hanoi(n,a,b,c):      
+    if n != 0:
+        hanoi(n-1, a,c,b)
+        print(a,"-",c)
+        hanoi(n-1,b,a,c)
+
+
+hanoi(int(input()),"1","2","3")
+
+'''
+I created a function with recursion.Feel the recursion?
+
+Shifting a stack of n disks is:
+
+1. Shifting the stack of n-1 disks to an independent axis
+
+2. Shifting the 5th disc to the desired axis
+
+3. Shifting the stack of n-1 disks to the desired axis
